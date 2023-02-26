@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ashura-deployment
+  labels:
+    app: ashura
+spec:
+  replicas: 1 # number of replicas to run
+  selector:
+    matchLabels:
+      app: ashura
+  template:
+    metadata:
+      labels:
+        app: ashura
+    spec:
+      containers:
+        - name: ashura
+          image: ashura/django
+          ports:
+            - containerPort: 8000 # port exposed by the container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ashura-service
+spec:
+  selector:
+    app: ashura
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000 # port exposed by the service
+      targetPort: 8000 # port exposed by the container
+  type: ClusterIP # type of the service
+

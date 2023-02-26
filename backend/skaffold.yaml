@@ -1,0 +1,35 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+metadata: 
+  name: local-dev
+build:
+  local:
+    push: false
+  tagPolicy:
+    sha256: {}
+  artifacts: 
+    - image: ashura/django
+      context: services/ashura
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '**/*.py'
+    - image: indra/nodejs
+      context: services/indra
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: 'src/**/*.ts'
+
+deploy:
+  kubectl: {}
+manifests:
+  kustomize:
+    paths:
+      - ./k8s/
+
+  

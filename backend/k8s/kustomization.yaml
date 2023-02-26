@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ./manifests/ashura-postgres.yaml
+  - ./manifests/indra-depl.yaml
+  - ./manifests/ashura-depl.yaml
