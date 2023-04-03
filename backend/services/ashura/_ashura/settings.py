@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'health.middleware.HealthCheckMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -91,6 +92,7 @@ DATABASES = {
         "PASSWORD": POSTGRES_CONFIG["password"],
         "HOST": POSTGRES_CONFIG["host"],
         "PORT": POSTGRES_CONFIG["port"],
+        'OPTIONS': { 'connect_timeout': 3, }
     }
 }
 

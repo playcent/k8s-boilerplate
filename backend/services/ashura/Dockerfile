@@ -28,4 +28,4 @@ RUN pip install --upgrade pip \
 COPY . .
 
 # Set the entrypoint command to run the Django development server
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
