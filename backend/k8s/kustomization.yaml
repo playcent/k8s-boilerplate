@@ -5,3 +5,4 @@ resources:
   - ./manifests/ashura-postgres.yaml
   - ./manifests/indra-depl.yaml
   - ./manifests/ashura-depl.yaml
+  - ./manifests/ingress.yaml

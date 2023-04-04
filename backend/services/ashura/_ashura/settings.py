@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+i40a_2cj(phce4ls2gz5ju^xq#ivwp&zpo5*v*nq+noc#cx36
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -95,7 +95,6 @@ DATABASES = {
         'OPTIONS': { 'connect_timeout': 3, }
     }
 }
-
 
 
 # Password validation

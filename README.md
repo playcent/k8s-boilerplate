@@ -6,6 +6,8 @@
 
 - [Install Skaffold](https://skaffold.dev/docs/install/)
 
+- [Install Ingress Nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
+
 ## RUN COMMAND
 ```
 cd backend/

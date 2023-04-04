@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ashura
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /api/ashura/
+        pathType: Prefix
+        backend:
+          service:
+            name: ashura-service
+            port:
+              number: 8000
+  ingressClassName: nginx
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-indra
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /api/indra/
+        pathType: Prefix
+        backend:
+          service:
+            name: indra-service
+            port:
+              number: 3000
+  ingressClassName: nginx
