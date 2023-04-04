@@ -14,8 +14,22 @@ cd backend/
 skaffold dev
 ```
 
-## KUBE JOB Creation (One time run to execute db migrations.)
+## K8s JOB Creation (One time run to execute db migrations.)
 ```
 cd backend/k8s/
 kubectl apply -f jobs/
 ```
+
+
+## K8s Dashboard 
+- Load YAML 
+```
+cd backend/k8s/
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl apply -f dashboard-user/
+```
+- Get Bearer token
+```
+kubectl -n kubernetes-dashboard create token admin-user
+```
+- [Paste the token here](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
