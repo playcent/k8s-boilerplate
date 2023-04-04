@@ -1,13 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: myjob
+  name: ashura-db-migrate
 spec:
   ttlSecondsAfterFinished: 100
   template:
     spec:
       containers:
-      - name: ashura-db-migration
+      - name: db-migrate
         image: ashura/django:latest
         imagePullPolicy: Never
         command: ["python3",  "manage.py", "migrate"]
