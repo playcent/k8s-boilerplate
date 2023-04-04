@@ -30,14 +30,14 @@ spec:
             httpGet:
               path: /health/live
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 15
             timeoutSeconds: 3
             periodSeconds: 60
           readinessProbe:
             httpGet:
               path: /health/ready
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 15
             timeoutSeconds: 3
             periodSeconds: 60
 ---
