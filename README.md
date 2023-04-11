@@ -10,13 +10,12 @@
 
 ## RUN COMMAND
 ```
-cd backend/
 skaffold dev
 ```
 
 ## K8s JOB Creation (One time run to execute db migrations.)
 ```
-cd backend/k8s/
+cd k8s/
 kubectl apply -f jobs/
 ```
 
@@ -24,7 +23,7 @@ kubectl apply -f jobs/
 ## K8s Dashboard 
 - Load YAML 
 ```
-cd backend/k8s/
+cd k8s/
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 kubectl apply -f dashboard-user/
 ```

@@ -9,7 +9,7 @@ build:
     sha256: {}
   artifacts: 
     - image: ashura/django
-      context: services/ashura
+      context: src/ashura
       docker:
         dockerfile: Dockerfile
       sync:
@@ -17,7 +17,7 @@ build:
           - dest: .
             src: '**/*.py'
     - image: indra/nodejs
-      context: services/indra
+      context: src/indra
       docker:
         dockerfile: Dockerfile
       sync:
