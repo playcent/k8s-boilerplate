@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ashura-db-migrate
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      initContainers:
+        - name: check-db-ready
+          image: postgres:14
+          command: ['sh', '-c',
+            'until pg_isready 
+              -h $POSTGRES_HOST 
+              -p $POSTGRES_PORT 
+              -U $POSTGRES_USER 
+              -d $POSTGRES_DB ;
+            do 
+              echo waiting for database; 
+              sleep 2; 
+            done;
+            echo database is ready;'
+          ]
+          env:
+            - name: POSTGRES_HOST
+              value: ashura-postgres-service
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: "ashura-user"
+            - name: POSTGRES_DB
+              value: "ashura-db"
+      containers:
+      - name: db-migrate
+        image: ashura/django:latest
+        imagePullPolicy: Never
+        command: ["python3",  "manage.py", "migrate"]
+      restartPolicy: Never
