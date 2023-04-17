@@ -1,5 +1,7 @@
 # INSTALLABLES
 
+- [Install VSCODE](https://code.visualstudio.com/download/)
+
 - [Install Docker Desktop](https://docs.docker.com/desktop/)
 
 - [Enable Kubernetes](https://docs.docker.com/desktop/kubernetes/)
@@ -8,16 +10,13 @@
 
 - [Install Ingress Nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
 
-## RUN COMMAND
+## RUN FROM TERMINAL
 ```
 skaffold dev
 ```
 
-## K8s JOB Creation (One time run to execute db migrations.)
-```
-cd k8s/
-kubectl apply -f jobs/
-```
+## RUN FROM IDE
+[Install CloudCode Extension](https://cloud.google.com/code/docs/vscode/install)
 
 
 ## K8s Dashboard 
