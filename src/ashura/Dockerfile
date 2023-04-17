@@ -24,8 +24,11 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+# Install ptvsd for debugging
+RUN pip install ptvsd
+
 # Copy the project code into the container
 COPY . .
 
-# Set the entrypoint command to run the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Start the server when the container launches
+CMD ["python", "-m", "ptvsd", "--port", "3000", "--host", "0.0.0.0", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]

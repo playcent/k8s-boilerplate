@@ -13,17 +13,13 @@ build:
       docker:
         dockerfile: Dockerfile
       sync:
-        manual:
-          - dest: .
-            src: '**/*.py'
+        infer: ["**/*"]
     - image: indra/nodejs
       context: src/indra
       docker:
         dockerfile: Dockerfile
       sync:
-        manual:
-          - dest: .
-            src: 'src/**/*.ts'
+        infer: ["**/*"]
 
 deploy:
   kubectl: {}
