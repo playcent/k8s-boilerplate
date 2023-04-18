@@ -14,7 +14,7 @@ RUN apt-get update \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory to /code
+# Set the working directory to /app
 WORKDIR /app
 
 # Copy the requirements file into the container
