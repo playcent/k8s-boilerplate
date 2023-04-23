@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.http import JsonResponse
 
 def message(request):
-    return JsonResponse({ "message": "ASHURA OK"}, status=200)
+    return JsonResponse({ "message": "Ashura V1"}, status=200)
   
 urlpatterns = [
     path('admin/', admin.site.urls),

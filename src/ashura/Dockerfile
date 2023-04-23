@@ -31,4 +31,4 @@ RUN pip install ptvsd
 COPY . .
 
 # Start the server when the container launches
-CMD ["python", "-m", "ptvsd", "--port", "3000", "--host", "0.0.0.0", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]
+CMD ["python", "-m", "ptvsd", "--port", "3000", "--host", "0.0.0.0", "manage.py", "runserver", "0.0.0.0:8000"]

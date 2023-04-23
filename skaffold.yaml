@@ -13,13 +13,15 @@ build:
       docker:
         dockerfile: Dockerfile
       sync:
-        infer: ["**/*"]
+        infer:
+        - "**/*"
     - image: indra/nodejs
       context: src/indra
       docker:
         dockerfile: Dockerfile
       sync:
-        infer: ["**/*"]
+        infer:
+        - "**/*"
 
 deploy:
   kubectl: {}

@@ -5,7 +5,7 @@ const port = 3000;
 
 app.get('/api/indra/', (req, res) => {
   console.log(req);
-  res.send('Hello, World! V2');
+  res.send('Indra V1');
 });
 
 app.listen(port, () => {
