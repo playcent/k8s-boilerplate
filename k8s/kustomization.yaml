@@ -2,8 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ./manifests/ashura.postgres.yaml
-  - ./manifests/indra.depl.yaml
-  - ./manifests/ashura.depl.yaml
+  - ./manifests/ashura-env.yaml
+  - ./manifests/ashura-db.deployment.yaml
+  - ./manifests/indra-app.deployment.yaml
+  - ./manifests/ashura-app.deployment.yaml
   - ./manifests/ingress.yaml
   - ./jobs/ashura-db.job.yaml

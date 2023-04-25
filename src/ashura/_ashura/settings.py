@@ -79,7 +79,7 @@ WSGI_APPLICATION = '_ashura.wsgi.application'
 POSTGRES_CONFIG = {
     "username": os.environ.get("POSTGRES_USER", "ashura-user"),
     "db_name": os.environ.get("POSTGRES_DB", "ashura-db"),
-    "host": os.environ.get("POSTGRES_HOST", "ashura-postgres-service"),
+    "host": os.environ.get("POSTGRES_HOST", "ashura-db-service"),
     "password": os.environ.get("POSTGRES_PASSWORD", "password"),
     "port": os.environ.get("POSTGRES_PORT", 5432),
 }

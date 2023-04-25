@@ -29,15 +29,9 @@ spec:
             done;
             echo database is ready;'
           ]
-          env:
-            - name: POSTGRES_HOST
-              value: ashura-postgres-service
-            - name: POSTGRES_PORT
-              value: "5432"
-            - name: POSTGRES_USER
-              value: "ashura-user"
-            - name: POSTGRES_DB
-              value: "ashura-db"
+          envFrom:
+            - configMapRef:
+                name: ashura-config
       containers:
         - name: ashura
           image: ashura/django
@@ -50,6 +44,15 @@ spec:
               memory: 256Mi
           ports:
             - containerPort: 8000 # port exposed by the container
+          envFrom:
+            - configMapRef:
+                name: ashura-config
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ashura-secret
+                  key: POSTGRES_PASSWORD
           livenessProbe:
             httpGet:
               path: /health/live
