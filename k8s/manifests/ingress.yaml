@@ -14,17 +14,6 @@ spec:
             name: ashura-service
             port:
               number: 8000
-  ingressClassName: nginx
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-indra
-spec:
-  rules:
-  - host: localhost
-    http:
-      paths:
       - path: /api/indra/
         pathType: Prefix
         backend:
@@ -32,4 +21,11 @@ spec:
             name: indra-service
             port:
               number: 3000
+      - path: /api/zetsu/
+        pathType: Prefix
+        backend:
+          service:
+            name: zetsu-service
+            port:
+              number: 3010
   ingressClassName: nginx

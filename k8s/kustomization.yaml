@@ -4,7 +4,10 @@ kind: Kustomization
 resources:
   - ./manifests/ashura-env.yaml
   - ./manifests/ashura-db.deployment.yaml
+
   - ./manifests/indra-app.deployment.yaml
+  - ./manifests/zetsu-app.deployment.yaml
   - ./manifests/ashura-app.deployment.yaml
+  
   - ./manifests/ingress.yaml
   - ./jobs/ashura-db.job.yaml
