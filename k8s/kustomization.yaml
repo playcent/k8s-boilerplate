@@ -3,7 +3,9 @@ kind: Kustomization
 
 resources:
   - ./manifests/ashura-env.yaml
+  - ./manifests/zetsu-env.yaml
   - ./manifests/ashura-db.deployment.yaml
+  - ./manifests/zetsu-db.deployment.yaml
 
   - ./manifests/indra-app.deployment.yaml
   - ./manifests/zetsu-app.deployment.yaml
