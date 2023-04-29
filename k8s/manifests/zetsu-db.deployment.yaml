@@ -14,21 +14,40 @@ spec:
         app: zetsu-db
     spec:
       containers:
-      - name: mongodb
-        image: mongo:5
-        envFrom:
-          - configMapRef:
-              name: zetsu-config
-        env:
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: zetsu-secret
-                key: MONGO_INITDB_ROOT_PASSWORD
-          - name: MONGODB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: zetsu-secret
-                key: MONGODB_PASSWORD
-        ports:
-        - containerPort: 27017
+        - name: mongodb
+          image: mongo:5
+          envFrom:
+            - configMapRef:
+                name: zetsu-config
+          env:
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: zetsu-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
+            - name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: zetsu-secret
+                  key: MONGODB_PASSWORD
+          ports:
+            - containerPort: 27017
+          readinessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+
