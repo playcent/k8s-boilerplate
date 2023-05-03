@@ -19,6 +19,15 @@ spec:
           image: zetsu/nodejs
           ports:
             - containerPort: 3010 # port exposed by the container
+          envFrom:
+            - configMapRef:
+                name: zetsu-config
+          env:
+            - name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: zetsu-secret
+                  key: MONGODB_PASSWORD            
 ---
 apiVersion: v1
 kind: Service

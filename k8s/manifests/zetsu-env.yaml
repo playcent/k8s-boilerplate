@@ -17,5 +17,5 @@ metadata:
 type: Opaque
 data:
   # This should **not** be in version control
-  MONGO_INITDB_ROOT_PASSWORD: cm9vdC1wYXNzd29yZAo=
+  MONGO_INITDB_ROOT_PASSWORD: cm9vdC1wYXNzd29yZA==
   MONGODB_PASSWORD: cGFzc3dvcmQ=
