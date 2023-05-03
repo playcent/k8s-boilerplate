@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ashura-deployment
+  name: ashura-app-deployment
   labels:
     app: ashura
 spec:
@@ -24,10 +24,10 @@ spec:
               -U $POSTGRES_USER 
               -d $POSTGRES_DB ;
             do 
-              echo waiting for database; 
+              echo "waiting for PostgresDB"; 
               sleep 2; 
             done;
-            echo database is ready;'
+            echo "PostgresDB is ready!";'
           ]
           envFrom:
             - configMapRef:
@@ -57,14 +57,14 @@ spec:
             httpGet:
               path: /health/live
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 5
             timeoutSeconds: 3
             periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /health/ready
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 5
             timeoutSeconds: 5
             periodSeconds: 30
 ---
