@@ -3,12 +3,10 @@ kind: ConfigMap
 metadata:
   name: zetsu-config
 data:
-  MONGO_INITDB_ROOT_USERNAME: "zetsu-root-user"
-  MONGO_INITDB_DATABASE: "zetsu-root-db"
-  MONGODB_HOST: "zetsu-db-service"
-  MONGODB_PORT: "27017"
-  MONGODB_DATABASE: "zetsu-db"
-  MONGODB_USERNAME: "zetsu-user"
+  MONGO_INITDB_ROOT_USERNAME: "zetsu-user"
+  MONGO_INITDB_DATABASE: "zetsu-db"
+  MONGO_HOST: "zetsu-db-service"
+  MONGO_PORT: "27017"
 ---
 apiVersion: v1
 kind: Secret
@@ -17,5 +15,4 @@ metadata:
 type: Opaque
 data:
   # This should **not** be in version control
-  MONGO_INITDB_ROOT_PASSWORD: cm9vdC1wYXNzd29yZA==
-  MONGODB_PASSWORD: cGFzc3dvcmQ=
+  MONGO_INITDB_ROOT_PASSWORD: cGFzc3dvcmQ=

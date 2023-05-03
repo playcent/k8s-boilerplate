@@ -1,10 +1,20 @@
 import express from 'express';
+import connectDB from './database';
+import health from './routes/api/health';
 
 const app = express();
 const port = 3010;
 
-app.get('/api/zetsu/', (req, res) => {
-  console.log(req);
+connectDB();
+
+app.use((req, _res, next) => {
+  console.log('Request received at: ', Date.now(), req.url);
+  next();
+});
+
+app.use(health);
+
+app.get('/api/zetsu/', (_req, res) => {
   res.send('Zetsu V1');
 });
 
