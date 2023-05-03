@@ -21,7 +21,7 @@ class HealthCheckMiddleware(object):
         """
         Returns that the server is alive.
         """
-        return JsonResponse({ "message": "LIVE OK"}, status=200)
+        return JsonResponse({"message": "Application is live."}, status=200)
 
     def readiness(self, request):
         # Connect to each database and do a generic standard SQL query
@@ -39,4 +39,4 @@ class HealthCheckMiddleware(object):
             logger.exception(e)
             return HttpResponseServerError("db: cannot connect to database.")
 
-        return JsonResponse({ "message": "READY OK"}, status=200)
+        return JsonResponse({"message": "Application is ready."}, status=200)
