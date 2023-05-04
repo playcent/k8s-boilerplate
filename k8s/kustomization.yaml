@@ -13,4 +13,4 @@ resources:
   - ./manifests/ashura/ashura-app.deployment.yaml
   
   - ./manifests/ingress.yaml
-  - ./jobs/ashura-db.job.yaml
+  - ./manifests/ashura/ashura-db.job.yaml
