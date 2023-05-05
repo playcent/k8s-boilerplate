@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indra-deployment
+  name: indra-app-deployment
   labels:
     app: indra
 spec:
