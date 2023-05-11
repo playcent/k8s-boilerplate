@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './database';
-import health from './routes/api/health';
+import { healthRouter } from './routes/api/health';
 
 const app = express();
 const port = 3010;
@@ -12,7 +12,7 @@ app.use((req, _res, next) => {
   next();
 });
 
-app.use(health);
+app.use(healthRouter);
 
 app.get('/api/zetsu/', (_req, res) => {
   res.send('Zetsu V1');

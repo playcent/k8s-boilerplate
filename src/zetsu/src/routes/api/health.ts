@@ -22,4 +22,4 @@ router.get('/health/live', (_req, res) => {
   res.status(200).json({ message: 'Application is live' });
 });
 
-export default router;
+export { router as healthRouter };
