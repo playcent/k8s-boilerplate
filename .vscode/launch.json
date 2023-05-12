@@ -26,7 +26,15 @@
           "sourceFileMap": {
             "${workspaceFolder}/src/indra": "/app"
           }
+        },
+        {
+          "image": "zetsu/nodejs",
+          "containerName": "zetsu",
+          "sourceFileMap": {
+            "${workspaceFolder}/src/indra": "/app"
+          }
         }
+        
       ]
     }
   ]
