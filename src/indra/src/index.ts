@@ -1,17 +1,14 @@
 import express from 'express';
+import logger from './lib/logger';
 
 const app = express();
 const port = 3000;
 
-app.use((req, _res, next) => {
-  console.log('Request received at: ', Date.now(), req.url);
-  next();
-});
-
 app.get('/api/indra/', (_req, res) => {
+  logger.debug('debug info');
   res.send('Indra V1');
 });
 
 app.listen(port, () => {
-  console.log(`Server running att http://localhost:${port}`);
+  logger.info(`Server running att http://localhost:${port}`);
 });
