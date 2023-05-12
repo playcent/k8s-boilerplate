@@ -1,9 +1,10 @@
+import logging
 from django.shortcuts import render
-
-# Create your views here.
 from django.db import connection
 from django.http import JsonResponse
 
+logger = logging.getLogger("ashura_app")
 
 def index(request):
-    return JsonResponse({ "message": "OK"}, status=200)
+  logger.info("Index view requested.")
+  return JsonResponse({ "message": "OK"}, status=200)

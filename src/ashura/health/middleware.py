@@ -1,8 +1,7 @@
 import logging
-
 from django.http import JsonResponse, HttpResponseServerError
 
-logger = logging.getLogger("healthz")
+logger = logging.getLogger("ashura_app")
 
 class HealthCheckMiddleware(object):
     def __init__(self, get_response):
@@ -21,12 +20,14 @@ class HealthCheckMiddleware(object):
         """
         Returns that the server is alive.
         """
+        logger.info('Checking the liveness of the application')
         return JsonResponse({"message": "Application is live."}, status=200)
 
     def readiness(self, request):
         # Connect to each database and do a generic standard SQL query
         # that doesn't write any data and doesn't depend on any tables
         # being present.
+        logger.info('Checking the readiness of the application')
         try:
             from django.db import connections
             for name in connections:
@@ -36,7 +37,7 @@ class HealthCheckMiddleware(object):
                 if row is None:
                     return HttpResponseServerError("db: invalid response")
         except Exception as e:
-            logger.exception(e)
+            logger.error(str(e))
             return HttpResponseServerError("db: cannot connect to database.")
 
         return JsonResponse({"message": "Application is ready."}, status=200)
