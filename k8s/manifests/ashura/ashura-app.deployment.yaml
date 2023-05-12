@@ -15,7 +15,7 @@ spec:
         app: ashura
     spec:
       initContainers:
-        - name: check-db-ready
+        - name: ashura-db-check
           image: postgres:14
           command: ['sh', '-c',
             'until pg_isready 

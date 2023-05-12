@@ -15,7 +15,7 @@ spec:
         app: zetsu
     spec:
       initContainers:
-        - name: check-db-ready
+        - name: zetsu-db-check
           image: mongo:5
           command: ['/bin/bash', '-c', 
             "until mongo 
