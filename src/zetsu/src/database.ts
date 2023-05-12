@@ -1,4 +1,5 @@
 import { connect } from 'mongoose';
+import logger from './lib/logger';
 const { MONGO_INITDB_ROOT_USERNAME, MONGO_INITDB_ROOT_PASSWORD, MONGO_HOST, MONGO_PORT, MONGO_INITDB_DATABASE } =
   process.env;
 
@@ -14,9 +15,9 @@ const connectDB = async () => {
       },
       authSource: 'admin',
     });
-    console.log('MongoDB Connected...');
+    logger.info('MongoDB connected...');
   } catch (err: any) {
-    console.error('NO', err.message);
+    logger.error('MongoDB cannot be connected...', err.message);
     // Exit process with failure
     process.exit(1);
   }
