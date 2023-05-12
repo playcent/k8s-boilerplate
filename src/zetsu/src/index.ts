@@ -1,13 +1,14 @@
 import express from 'express';
 import connectDB from './database';
 import { healthRouter } from './routes/api/health';
+import morganMiddleware from './middleware/httplog';
 import logger from './lib/logger';
 
 const app = express();
 const port = 3010;
 
 connectDB();
-
+app.use(morganMiddleware);
 app.use('/health', healthRouter);
 
 app.get('/api/zetsu/', (_req, res) => {
