@@ -1,6 +1,6 @@
 import express from 'express';
 import logger from './lib/logger';
-import morganMiddleware from './middleware/httplog';
+import morganMiddleware from './middleware/http-log';
 
 const app = express();
 const port = 3000;

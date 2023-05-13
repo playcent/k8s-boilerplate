@@ -1,7 +1,7 @@
 import express from 'express';
 import connectDB from './database';
 import { healthRouter } from './routes/api/health';
-import morganMiddleware from './middleware/httplog';
+import morganMiddleware from './middleware/http-log';
 import logger from './lib/logger';
 
 const app = express();
