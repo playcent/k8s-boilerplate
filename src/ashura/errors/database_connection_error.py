@@ -5,8 +5,8 @@ class DatabaseConnectionError(CustomError):
     status_code = 500
     message = 'Error connecting to database'
 
-    def __init__(self, message: str, field: Optional[str] = None):
-        super().__init__(message)
+    def __init__(self):
+        super().__init__(self.message)
         
 
     def serialize_errors(self) -> List[IErrorStruct]:

@@ -27,7 +27,7 @@ def message(request):
 
 def error(request):
   logger.error("Error view requested.")
-  raise DatabaseConnectionError("Database connection error.")
+  raise DatabaseConnectionError()
   
 urlpatterns = [
     path('admin/', admin.site.urls),
