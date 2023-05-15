@@ -18,7 +18,7 @@ app.get('/api/zetsu/', (req, res) => {
   res.send('Zetsu V1');
 });
 
-app.get('/api/zetsu/error', (req, res) => {
+app.get('/api/zetsu/error/', (req, res) => {
   logger.error('database error');
   throw new DatabaseConnectionError();
 });

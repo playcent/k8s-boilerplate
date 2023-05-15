@@ -17,16 +17,22 @@ import logging
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from errors.database_connection_error import DatabaseConnectionError
 
 logger = logging.getLogger("ashura_app")
 
 def message(request):
   logger.info("Message view requested.")
   return JsonResponse({ "message": "Ashura V1"}, status=200)
+
+def error(request):
+  logger.error("Error view requested.")
+  raise DatabaseConnectionError("Database connection error.")
   
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/ashura/", message),
+    path("api/ashura/error/", error),
     path("health/", include("health.urls"))
     
 ]

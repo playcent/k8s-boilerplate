@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'errors.middleware.ErrorHandlingMiddleware',
 ]
 
 ROOT_URLCONF = '_ashura.urls'
@@ -78,9 +79,9 @@ WSGI_APPLICATION = '_ashura.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 POSTGRES_CONFIG = {
-    "username": os.environ.get("POSTGRES_USER", "ashura-user"),
-    "db_name": os.environ.get("POSTGRES_DB", "ashura-db"),
-    "host": os.environ.get("POSTGRES_HOST", "ashura-db-service"),
+    "username": os.environ.get("POSTGRES_USER", "ashurauser"),
+    "db_name": os.environ.get("POSTGRES_DB", "ashuradb"),
+    "host": os.environ.get("POSTGRES_HOST", "localhost"),
     "password": os.environ.get("POSTGRES_PASSWORD", "password"),
     "port": os.environ.get("POSTGRES_PORT", 5432),
 }
