@@ -1,10 +1,7 @@
 import express from 'express';
 import connectDB from './database';
 import { healthRouter } from './routes/api/health';
-import morganMiddleware from './middleware/http-log';
-import logger from './lib/logger';
-import { errorHandler } from './middleware/error-handler';
-import { DatabaseConnectionError } from './errors/database-connection-error';
+import { morganMiddleware, logger, errorHandler, DatabaseConnectionError } from '@cashoco/common';
 
 const app = express();
 const port = 3010;

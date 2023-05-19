@@ -1,5 +1,6 @@
 import { connect } from 'mongoose';
-import logger from './lib/logger';
+import { logger } from '@cashoco/common';
+
 const { MONGO_INITDB_ROOT_USERNAME, MONGO_INITDB_ROOT_PASSWORD, MONGO_HOST, MONGO_PORT, MONGO_INITDB_DATABASE } =
   process.env;
 

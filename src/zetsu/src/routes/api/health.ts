@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import mongoose from 'mongoose';
-import logger from '../../lib/logger';
+import { logger } from '@cashoco/common';
 
 const router: Router = Router();
 
