@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import connectDB from './database';
 import { healthRouter } from './routes/api/health';
 import { morganMiddleware, logger, errorHandler, DatabaseConnectionError } from '@cashoco/common';
@@ -10,12 +10,14 @@ connectDB();
 app.use(morganMiddleware);
 app.use('/health', healthRouter);
 
-app.get('/api/zetsu/', (req, res) => {
+app.get('/api/zetsu/', (req: Request, res: Response) => {
+  logger.info(`request ID ${req.header('x-request-id')}`);
   logger.debug('debug info');
   res.send('Zetsu V1');
 });
 
-app.get('/api/zetsu/error/', (req, res) => {
+app.get('/api/zetsu/error/', (req: Request, res: Response) => {
+  logger.info(`request ID ${req.header('x-request-id')}`);
   logger.error('database error');
   throw new DatabaseConnectionError();
 });

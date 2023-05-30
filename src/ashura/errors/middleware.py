@@ -5,7 +5,6 @@ from errors.custom_error import CustomError
 
 class ErrorHandlingMiddleware:
     def __init__(self, get_response):
-        print("error check init")
         self.get_response = get_response
 
     def __call__(self, request):     

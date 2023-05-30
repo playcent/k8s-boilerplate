@@ -22,10 +22,12 @@ from errors.database_connection_error import DatabaseConnectionError
 logger = logging.getLogger("ashura_app")
 
 def message(request):
+  logger.info("Request ID {0}".format(request.headers['X-Request-Id']))
   logger.info("Message view requested.")
   return JsonResponse({ "message": "Ashura V1"}, status=200)
 
 def error(request):
+  logger.info("Request ID {0}".format(request.headers['X-Request-Id']))
   logger.error("Error view requested.")
   raise DatabaseConnectionError()
   
