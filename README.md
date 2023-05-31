@@ -10,6 +10,13 @@
 
 - [Install Ingress Nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
 
+
+## Create Persistent Volumes
+```
+kubectl apply -f k8s/manifests/volumes/
+```
+
+
 ## RUN FROM TERMINAL
 ```
 skaffold dev
