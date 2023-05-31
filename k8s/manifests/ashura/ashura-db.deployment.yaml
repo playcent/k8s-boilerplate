@@ -13,6 +13,10 @@ spec:
       labels:
         app: ashura-db
     spec:
+      volumes:
+        - name: ashura-pv-storage
+          persistentVolumeClaim:
+            claimName: ashura-pvc
       containers:
         - name: postgres
           image: postgres:14
@@ -27,6 +31,9 @@ spec:
                   key: POSTGRES_PASSWORD
           ports:
             - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: ashura-pv-storage
           readinessProbe:
             exec:
               command:
