@@ -51,6 +51,6 @@ kubectl proxy
 
 ## TEST
 
-[Ashura] (http://localhost/api/ashura/)
-[Indra] (http://localhost/api/indra/)
-[Zetsu] (http://localhost/api/zetsu/)
+- [Ashura](http://localhost/api/ashura/)
+- [Indra](http://localhost/api/indra/)
+- [Zetsu](http://localhost/api/zetsu/)
