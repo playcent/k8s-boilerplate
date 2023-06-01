@@ -11,7 +11,7 @@
 - [Install Ingress Nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
 
 
-## Create Persistent Volumes
+## CREATE PERSISTENT VOLUMES
 ```
 kubectl apply -f k8s/manifests/volumes/
 ```
@@ -22,7 +22,7 @@ kubectl apply -f k8s/manifests/volumes/
 skaffold dev
 ```
 
-## CleanUp 
+## CLEAN UP 
 ```
 skaffold delete
 ```
@@ -49,8 +49,8 @@ kubectl proxy
 - [Paste the token here](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
 
-## Test
+## TEST
 
-- [Ashura] (http://localhost/api/ashura/)
-- [Indra] (http://localhost/api/indra/)
-- [Zetsu] (http://localhost/api/zetsu/)
+[Ashura] (http://localhost/api/ashura/)
+[Indra] (http://localhost/api/indra/)
+[Zetsu] (http://localhost/api/zetsu/)
