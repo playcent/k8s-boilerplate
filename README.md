@@ -22,6 +22,11 @@ kubectl apply -f k8s/manifests/volumes/
 skaffold dev
 ```
 
+## CleanUp 
+```
+skaffold delete
+```
+
 ## RUN FROM IDE
 [Install CloudCode Extension](https://cloud.google.com/code/docs/vscode/install)
 
@@ -42,3 +47,10 @@ kubectl -n kubernetes-dashboard create token admin-user
 kubectl proxy
 ```
 - [Paste the token here](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+
+
+## Test
+
+- [Ashura] (http://localhost/api/ashura/)
+- [Indra] (http://localhost/api/indra/)
+- [Zetsu] (http://localhost/api/zetsu/)
